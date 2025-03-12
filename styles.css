@@ -1,0 +1,128 @@
+/* Bendri nustatymai */
+#body-pagr {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('images/pagr.jpg') no-repeat center center/cover;
+    position: relative;
+}
+
+
+h1, h2 {
+    text-align: center;
+}
+p{
+    padding: 30px 30px;
+}
+
+
+/* Navigacijos stilius */
+header {
+    background: rgba(0, 0, 0, 0.89);
+    padding: 30px 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: rgb(202, 199, 195);
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Prekių skiltis */
+.products {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 50px auto;
+    max-width: 1000px;
+    align-items: center;
+}
+
+/* Produktai */
+.product {
+    background:rgb(202, 199, 195);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    width: 220px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Užtikriname, kad vaizdas užima visą kortelės plotį */
+.product img {
+    width: 100%;
+    border-radius: 10px;
+    height: 300px;
+    object-fit: contain;
+}
+
+/* Padidinimas */
+.padidintas {
+    transform: scale(1.5);
+    transition: transform 0.3s ease-in-out;
+}
+
+
+/* forma */
+#body-form {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: url('images/form3.jpg') no-repeat center center;
+    background-size: cover; /* Užtikrina, kad vaizdas užims visą ekraną */
+    height: 100vh; /* 100% naršyklės aukščio */
+    width: 100%; /* Užtikrina, kad fono plotis išsitemptų */
+    position: relative;
+    place-items: center;
+}
+
+form{
+    place-items: center;
+}
+input {
+    display: block; 
+    /* margin-bottom: 10px; Pridėtas tarpas tarp laukelių */
+    /* margin: 10px 10px */
+}
+
+input, textarea {
+    width: 100%; /* Laukeliai užima pilną plotį */
+    max-width: 400px; /* Ribojame maksimalų plotį */
+    padding: 8px;
+    margin: 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+}
+
+#uzklausa{
+    margin-bottom: 30px;
+}
+
+#telefonas{
+    color:rgb(59, 59, 59);
+
+}
