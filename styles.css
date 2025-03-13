@@ -9,8 +9,13 @@
 
 
 h1, h2 {
+    display: flex;
+    justify-content: center; /* Centruoja horizontaliai */
+    align-items: center; /* Centruoja vertikaliai, jei reikia */
     text-align: center;
+    height: auto; /* Užtikrina, kad aukštis bus pagal turinį */
 }
+
 p{
     padding: 30px 30px;
 }
@@ -96,19 +101,34 @@ nav ul li a:hover {
     height: 100vh; /* 100% naršyklės aukščio */
     width: 100%; /* Užtikrina, kad fono plotis išsitemptų */
     position: relative;
-    place-items: center;
+    /* place-items: center; */
+    display: flex; /*elemento padetis numatyta
+    justify-content: center; /* Centruoja visą formą horizontaliai */
+    align-items: center; /* Centruoja visą formą vertikaliai */
+    flex-direction: column; /* Užtikrina, kad elementai būtų vienas po kito */
 }
 
-form{
+/* form{
     place-items: center;
+} */
+form {
+    display: flex;
+    flex-direction: column; /* Išdėlioja laukelius vieną po kito */
+    align-items: center; /* Centruoja formos elementus horizontalioje ašyje */
+    justify-content: center; /* Užtikrina, kad forma būtų centre */
+    height: auto; /* Užtikrina, kad forma nesitemptų per visą ekraną */
+    width: 100%;
 }
+
 input {
     display: block; 
     /* margin-bottom: 10px; Pridėtas tarpas tarp laukelių */
     /* margin: 10px 10px */
 }
 
-input, textarea {
+input, textarea, select {
+    display:flex;
+    justify-content: center;
     width: 100%; /* Laukeliai užima pilną plotį */
     max-width: 400px; /* Ribojame maksimalų plotį */
     padding: 8px;
@@ -116,6 +136,7 @@ input, textarea {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-family: Arial, sans-serif;
+    background-color: rgb(226, 224, 224);
 }
 
 #uzklausa{
@@ -124,5 +145,38 @@ input, textarea {
 
 #telefonas{
     color:rgb(59, 59, 59);
-
 }
+
+.button-container{
+    display: flex;
+    gap: 10px; /* Atstumas tarp mygtukų */
+    justify-content: center; /* Centruoja mygtukus horizontaliai */
+    margin-top: 20px; /* Tarpas virš mygtukų */
+}
+button {
+    padding: 10px 20px;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: rgb(226, 224, 224);
+    color: black;
+    cursor: pointer;
+    /* font-size: 16px; */
+}
+
+button:hover {
+    background-color: rgb(202, 199, 195);
+}
+
+/* drop down mygtukas */
+#prekiu-sarasas {
+    width: 100%;
+    max-width: 300px;
+    padding: 8px;
+    /* font-size: 16px; */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: rgb(226, 224, 224);
+    font-family: Arial, sans-serif;
+    color:rgb(121, 120, 120);
+}
+
