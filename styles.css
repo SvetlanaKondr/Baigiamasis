@@ -8,24 +8,33 @@
 }
 
 
-h1, h2 {
+h1,
+h2 {
     display: flex;
-    justify-content: center; /* Centruoja horizontaliai */
-    align-items: center; /* Centruoja vertikaliai, jei reikia */
+    justify-content: center;
+    /* Centruoja horizontaliai */
+    align-items: center;
+    /* Centruoja vertikaliai, jei reikia */
     text-align: center;
-    height: auto; /* Užtikrina, kad aukštis bus pagal turinį */
+    height: auto;
+    /* Užtikrina, kad aukštis bus pagal turinį */
 }
 
-p{
+p {
     padding: 30px 30px;
 }
 
 
 /* Navigacijos stilius */
 header {
-    background: rgba(0, 0, 0, 0.89);
-    padding: 30px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(150, 146, 146, 0.89);
+    padding: 30px 20px;
     text-align: center;
+    height: 15px;
+    border-radius: 5px;
 }
 
 nav ul {
@@ -41,7 +50,8 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: rgb(202, 199, 195);
+    color: black;
+    /* color: rgb(202, 199, 195); */
     font-size: 18px;
     font-weight: bold;
     padding: 10px 15px;
@@ -66,7 +76,7 @@ nav ul li a:hover {
 
 /* Produktai */
 .product {
-    background:rgb(202, 199, 195);
+    background: rgb(202, 199, 195);
     padding: 15px;
     border-radius: 10px;
     text-align: center;
@@ -91,46 +101,88 @@ nav ul li a:hover {
 }
 
 
+.rezervuota>div {
+    position: relative;
+}
+
+.rezervuota>div>div {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #cfc4c48a;
+    font-size: 24px;
+}
+
+.rezervuota p,
+.rezervuota h3,
+.rezervuota h4 {
+    color: gray;
+    /* Aprašymas tampa pilkos spalvos */
+}
+
+
+
 /* forma */
 #body-form {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background: url('images/form3.jpg') no-repeat center center;
-    background-size: cover; /* Užtikrina, kad vaizdas užims visą ekraną */
-    height: 100vh; /* 100% naršyklės aukščio */
-    width: 100%; /* Užtikrina, kad fono plotis išsitemptų */
+    background-size: cover;
+    /* Užtikrina, kad vaizdas užims visą ekraną */
+    height: 100vh;
+    /* 100% naršyklės aukščio */
+    width: 100%;
+    /* Užtikrina, kad fono plotis išsitemptų */
     position: relative;
     /* place-items: center; */
-    display: flex; /*elemento padetis numatyta
+    display: flex;
+    /*elemento padetis numatyta
     justify-content: center; /* Centruoja visą formą horizontaliai */
-    align-items: center; /* Centruoja visą formą vertikaliai */
-    flex-direction: column; /* Užtikrina, kad elementai būtų vienas po kito */
+    align-items: center;
+    /* Centruoja visą formą vertikaliai */
+    flex-direction: column;
+    /* Užtikrina, kad elementai būtų vienas po kito */
 }
+
+
 
 /* form{
     place-items: center;
 } */
 form {
     display: flex;
-    flex-direction: column; /* Išdėlioja laukelius vieną po kito */
-    align-items: center; /* Centruoja formos elementus horizontalioje ašyje */
-    justify-content: center; /* Užtikrina, kad forma būtų centre */
-    height: auto; /* Užtikrina, kad forma nesitemptų per visą ekraną */
+    flex-direction: column;
+    /* Išdėlioja laukelius vieną po kito */
+    align-items: center;
+    /* Centruoja formos elementus horizontalioje ašyje */
+    justify-content: center;
+    /* Užtikrina, kad forma būtų centre */
+    height: auto;
+    /* Užtikrina, kad forma nesitemptų per visą ekraną */
     width: 100%;
 }
 
 input {
-    display: block; 
+    display: block;
     /* margin-bottom: 10px; Pridėtas tarpas tarp laukelių */
     /* margin: 10px 10px */
 }
 
-input, textarea, select {
-    display:flex;
+input,
+textarea,
+select {
+    display: flex;
     justify-content: center;
-    width: 100%; /* Laukeliai užima pilną plotį */
-    max-width: 400px; /* Ribojame maksimalų plotį */
+    width: 100%;
+    /* Laukeliai užima pilną plotį */
+    max-width: 400px;
+    /* Ribojame maksimalų plotį */
     padding: 8px;
     margin: 10px 10px;
     border: 1px solid #ccc;
@@ -139,20 +191,24 @@ input, textarea, select {
     background-color: rgb(226, 224, 224);
 }
 
-#uzklausa{
+#uzklausa {
     margin-bottom: 30px;
 }
 
-#telefonas{
-    color:rgb(59, 59, 59);
+#telefonas {
+    color: rgb(59, 59, 59);
 }
 
-.button-container{
+.button-container {
     display: flex;
-    gap: 10px; /* Atstumas tarp mygtukų */
-    justify-content: center; /* Centruoja mygtukus horizontaliai */
-    margin-top: 20px; /* Tarpas virš mygtukų */
+    gap: 10px;
+    /* Atstumas tarp mygtukų */
+    justify-content: center;
+    /* Centruoja mygtukus horizontaliai */
+    margin-top: 20px;
+    /* Tarpas virš mygtukų */
 }
+
 button {
     padding: 10px 20px;
     border: 1px solid;
@@ -177,6 +233,5 @@ button:hover {
     border-radius: 5px;
     background-color: rgb(226, 224, 224);
     font-family: Arial, sans-serif;
-    color:rgb(121, 120, 120);
+    color: rgb(121, 120, 120);
 }
-

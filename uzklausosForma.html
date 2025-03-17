@@ -8,8 +8,7 @@
 
     <link rel="stylesheet" href="styles.css">
 
-<script     type="text/javascript"
-src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 
 </head>
@@ -19,21 +18,21 @@ src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script
         <div class="form-container">
             <h2 id="uzklausa">Užklausos forma</h2>
 
-            <input id="pastas" type="text" placeholder="Nurodykite el.paštą" required>
+            <input id="pastas" type="text" placeholder="Nurodykite savo el.paštą" required>
             <!-- <input name="prekes-numeris" type="text" placeholder="Nurodykite prekės numerį" required> -->
 
             <!-- drop down mygtukas -->
             <label for="prekiu-sarasas"></label>
             <select id="prekiu-sarasas">
                 <!-- pradinis pasirinkimas -->
-                <option value="">Pasirinkite prekę</option> Tuščias pasirinkimas 
+                <option value="">Pasirinkite norimą prekę</option> Tuščias pasirinkimas
             </select>
             <!-- Čia rodysime pasirinktos prekės kainą -->
             <!-- <p id="kainos-rodymas"></p>  -->
 
 
             <textarea id="komentaras" name="komentaras" rows="4" cols="50"
-                placeholder="Komentaras neprivalomas"></textarea>
+                placeholder="Noriu paklausti/užsisakyti. (Komentaras neprivalomas)"></textarea>
 
         </div>
         <div class="button-container">
@@ -53,81 +52,81 @@ src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script
 
     <!-- <script src="uzsakymoForma.js"></script> -->
 
-     <!-- drop down is kito saraso -->
-<script>
-    const grizti = document.getElementById("grizti");
-if (grizti) {
-    grizti.addEventListener('click', function () {
-        console.log("paspaustas")
-        window.location.href = "index.html";
-    });
-}
-
-    document.addEventListener("DOMContentLoaded", function () {
-        // Randame `select` elementą
-        const prekiuSelect = document.getElementById("prekiu-sarasas");
-    
-        // Tikriname, ar `localStorage` yra prekių
-        const prekesJSON = localStorage.getItem("prekes");
-    
-        if (prekesJSON) {
-            const prekes = JSON.parse(prekesJSON); // Konvertuojame iš JSON atgal į objektą
-    
-            // Užpildome „drop-down“
-            prekes.forEach(preke => {
-                const option = document.createElement("option");
-                option.value = preke.id;
-                option.textContent = `${preke.id} - ${preke.aprasymas}`;
-                prekiuSelect.appendChild(option);
+    <!-- drop down is kito saraso -->
+    <script>
+        const grizti = document.getElementById("grizti");
+        if (grizti) {
+            grizti.addEventListener('click', function () {
+                console.log("paspaustas")
+                window.location.href = "index.html";
             });
-        } else {
-            console.warn("Prekių sąrašas nerastas localStorage.");
         }
-    });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Randame `select` elementą
+            const prekiuSelect = document.getElementById("prekiu-sarasas");
+
+            // Tikriname, ar `localStorage` yra prekių
+            const prekesJSON = localStorage.getItem("prekes");
+
+            if (prekesJSON) {
+                const prekes = JSON.parse(prekesJSON); // Konvertuojame iš JSON atgal į objektą
+
+                // Užpildome „drop-down“
+                prekes.forEach(preke => {
+                    const option = document.createElement("option");
+                    option.value = preke.id;
+                    option.textContent = `${preke.id} - ${preke.aprasymas}`;
+                    prekiuSelect.appendChild(option);
+                });
+            } else {
+                console.warn("Prekių sąrašas nerastas localStorage.");
+            }
+        });
 
 
-</script>
-  
-<!-- laisko issiuntimas -->
+    </script>
 
-    <script >
- 
-    (function() {
+    <!-- laisko issiuntimas -->
+
+    <script>
+
+        (function () {
             emailjs.init("OcsgTfFEqIdR9KMTc");
         })();
 
-function sendMail(){
-    let params ={
-        pastas: document.getElementById('pastas').value,
-        preke: document.getElementById('prekiu-sarasas').value,
-        komentaras: document.getElementById('komentaras').value
-    };
+        function sendMail() {
+            let params = {
+                pastas: document.getElementById('pastas').value,
+                preke: document.getElementById('prekiu-sarasas').value,
+                komentaras: document.getElementById('komentaras').value
+            };
 
-    //inicijuoti emailjs
-    emailjs.send("service_adiroeg", "template_1mzdivu", params)
-  .then(function(response) {
-    // alert("Laiškas išsiųstas");
-    location.reload();
-    clearForm();
-  }, function(error) {
-    alert("Klaida siunčiant laišką: " + error.text);
+            //inicijuoti emailjs
+            emailjs.send("service_adiroeg", "template_1mzdivu", params)
+                .then(function (response) {
+                    alert("Laiškas išsiųstas");
+                    location.reload();
+                    clearForm();
+                }, function (error) {
+                    alert("Klaida siunčiant laišką: " + error.text);
 
-  });
+                });
 
-}
-    // // isvalyti forma po siuntimo
-    // function clearForm() {
-    //     document.getElementById("uzklausa-forma").reset(); // Išvalo visus įvesties laukus
-    // }
+        }
+        // // isvalyti forma po siuntimo
+        // function clearForm() {
+        //     document.getElementById("uzklausa-forma").reset(); // Išvalo visus įvesties laukus
+        // }
 
 
 
-document.getElementById("uzklausa-forma").addEventListener("submit", function(event) {
-    event.preventDefault(); // Neleidžia formai išsiųsti ir puslapiui perkelti
-    sendMail(); // Kvieskite sendMail funkciją
-});
+        document.getElementById("uzklausa-forma").addEventListener("submit", function (event) {
+            event.preventDefault(); // Neleidžia formai išsiųsti ir puslapiui perkelti
+            sendMail(); // Kvieskite sendMail funkciją
+        });
 
-</script>
+    </script>
 
 
 </body>
